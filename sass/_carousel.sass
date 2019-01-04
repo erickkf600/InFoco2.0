@@ -1,0 +1,54 @@
+#cards-top
+  @extend %flex-box
+  justify-content: space-around
+  border-radius:0 0 10px 10px
+  border:1px solid #AAA
+  border-bottom: 3px solid #BBB
+  background: linear-gradient(to right,#fff,#c1c1c1)
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+  img
+    @include full-hd
+      width: 100px
+    @include celular-xs
+      width: 50px
+  p
+    font: 
+      size: 13px
+      family: 'Noto Sans', sans-serif
+      weight: 600 
+    letter-spacing: 1.2px
+    @include full-hd
+      font-size: 20px
+    @include tablet-mini
+      margin: 0 3rem
+      font-size: 15px
+      text-align: center
+    @include celular
+      margin: 0 2rem
+    @include celular-md
+      font-size: 11px
+      margin: 0 .5rem
+    @include celular-xs
+      font-size: 9px
+      margin: 0 2px  
+.swiper-container
+  width: 100%
+  padding-top: 50px
+  padding-bottom: 50px
+.swiper-slide
+  background-position: center
+  background-size: cover
+  width: 400px
+  height: 400px
+  @include full-hd
+    width: 570px
+    height: 570px
+  @include celular
+    width: 300px
+    height: 300px
+  @include celular-md
+    width: 200px
+    height: 200px 
+  @include celular-xs
+    width: 150px
+    height: 150px

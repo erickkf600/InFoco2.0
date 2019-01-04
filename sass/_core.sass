@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Bree+Serif|Montserrat')
+/*MIXINS*/
+@mixin transition($transicao) 
+  -webkit-transition: $transicao
+  -moz-transition: $transicao
+  -ms-transition: $transicao
+  -o-transition: $transicao
+  transition: $transicao
+
+@mixin transform($transform) 
+  -webkit-transform: ($transform)
+  -moz-transform: ($transform)
+  -ms-transform: ($transform)
+  -o-transform: ($transform)
+  transform: ($transform) 
+
+@mixin back($escolha)
+  background: $escolha
+  background-repeat: no-repeat
+  background-size: cover
+@mixin placeholder 
+  ::-webkit-input-placeholder 
+    @content
+  :-moz-placeholder         
+    @content
+  ::-moz-placeholder          
+    @content
+  :-ms-input-placeholder      
+    @content  
+//ANIMAÇÃO
+@mixin animacao($anime) 
+  -webkit-animation: $anime
+  -moz-animation: $anime
+  -ms-animation: $anime
+  animation: $anime
+@mixin keyframe($movimento) 
+  @-webkit-keyframes #{$movimento}
+    @content
+  @-moz-keyframes #{$movimento}
+    @content
+  @-o-keyframes #{$movimento}
+    @content
+//Media Queries
+@mixin full-hd
+  @media screen and (min-width:1920px)
+    @content
+@mixin tablet
+  @media screen and (max-width:1024px)
+    @content
+@mixin tablet-mini
+  @media screen and (max-width:768px)
+    @content 
+@mixin celular
+  @media screen and (max-width:610px)
+    @content   
+@mixin celular-md
+  @media screen and (max-width:480px)
+    @content         
+@mixin celular-xs
+  @media screen and (max-width:320px)
+    @content  
+       
+/*PLACEHOLDERS*/
+%p-absolute
+  position: absolute
+%p-relative
+  position: relative 
+%p-fixed
+  position: fixed     
+%flex-box
+  display: flex
+  flex-direction: row
+%width-height
+  height:100%
+  width:100%
+%gradient-azul
+  background-image: linear-gradient(315deg, #537895 10%, #2A2A72 74%)
+%gradient-azul-dark
+  background-image: linear-gradient(315deg, #537895 0%, #09203f 74%)  
+%color-branco
+  color: #fff 
+%back-transparent
+  background: transparent   
+%pointer
+  cursor: pointer  
+%bree-serif
+  font-family: 'Bree Serif'
+%moteserrat
+  font-family: 'Montserrat', sans-serif
+@import "header" 
+@import "carousel" 
+@import "footer" 
+@import "login"
+@import "sobre"
+@import "planos"
+/*side-bar*/
+.side-card 
+  margin-top: 2.77rem
+  @include celular
+    display: flex
+    justify-content: center
+
+
+
+

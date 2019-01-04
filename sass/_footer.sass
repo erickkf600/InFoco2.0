@@ -1,0 +1,86 @@
+.footer
+  background: linear-gradient(147deg, #000000 0%, #2c3e50 74%)
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5) inset
+  padding-top: 40px
+  color: #636e74
+  font-weight: 400
+  font-size: 17px
+  position: relative
+  img
+    width: 35%
+    @include celular-md
+     width: 70% 
+     display: block
+     margin: 0 auto
+  #section
+    padding: 0 20px
+    h5
+      padding-left: 10px
+      border-left: 3px solid #eeeeee
+      @extend %bree-serif
+      padding-bottom: 6px
+      margin-bottom: 20px
+      @extend %color-branco
+    li
+      list-style: circle
+      margin: 0 30px 
+    a
+      @extend %color-branco
+      @include transition(all .4s ease)
+      text: 
+        transform:capitalize
+        decoration: none
+      font:
+        size: 17px
+        weight: 100
+      &:hover
+        color: #ccc
+        font:
+          size: 18px 
+          weight: 600
+.news
+  p
+    @extend %color-branco
+    letter-spacing: 1.2px
+    @include celular-md
+      font-size: 15px
+  .input, .cad-news
+    border: 1px solid #fff
+    padding: 10px
+    @extend %color-branco
+    @extend %width-height
+    @extend %back-transparent
+    @include transition(all .4s ease)
+    &:focus
+      outline: none
+  @include placeholder 
+    color: #fff
+    font-weight:100 
+.cad-news
+  &:hover
+    background: rgba(255,255,255,0.5)
+    color: #232323
+.line
+  border-top: 1px solid #e4e7e9
+  margin-bottom: 50px
+  margin-top: 20px
+
+.sociais
+  display: flex
+  justify-content: center
+  margin: 20px
+  i
+    color: #888d90
+    margin: 13px
+    font-size: 2rem
+    &:hover
+      color: tomato
+
+.sub-footer
+  font-size: 14px
+  padding: 14px 0px
+  font-weight: 600
+  background-color: transparent
+  border-top: 1px solid #ccc
+  color: #888d90
+  line-height: 1

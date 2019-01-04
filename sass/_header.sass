@@ -1,0 +1,368 @@
+#header
+  width: 100%
+  height: 100vh
+  @include back(url(../img/banner.jpg) 50% 50%)
+  @extend %p-relative 
+  &:before
+    content:""
+    @extend %p-absolute
+    top: 0
+    left: 0
+    @extend %width-height
+    background: rgba(9,22,119,0.4)
+.backtop
+  position: fixed
+  bottom: 20px
+  right: 30px
+  font-size: 20px
+  border: none
+  z-index: 2
+  outline: none
+  @extend %color-branco
+  background: rgba(0,7,142,0.6) 
+  @extend %pointer
+  padding: 7px 15px
+  border-radius: 4px    
+/*  BURGER MENU
+ *==========================================*/
+.menu
+  width: 50px
+  height: 50px
+  z-index: 5
+  @extend %p-fixed
+  left: 1%
+  span
+    @extend %p-relative
+    margin-top: 9px
+    margin-bottom: 9px
+    top: 50%
+    left: 50%
+    margin-left: -15px
+.menu span, .menu span::before, .menu span::after
+  @extend %p-absolute
+  content: ""
+  display: block
+  width: 26px
+  right: 0
+  height: 3px
+  background: #fc7531
+  outline: 1px solid transparent
+  @include transition(.3s)
+.menu span::before
+  top: -9px
+  width:20px
+.menu span::after
+  top: 9px 
+  width: 33px
+.menu.clicked 
+  span
+    @extend %back-transparent
+    &::before
+      @include transform(translateY(9px) rotate(45deg))
+      width: 33px
+    &::after
+       @include transform(translateY(-9px) rotate(-45deg))
+    &:before, &:after
+      background: #fff
+.menu:hover
+  @extend %pointer
+
+/*  NAV 
+ * ========================================== */
+.user
+  display: none
+  @include tablet-mini
+    display: flex
+  img
+    height: 60px
+    border-radius: 50px
+  p
+    line-height: 60px
+    margin-left: 20px
+    @extend %color-branco
+    font-size: 17px  
+.login
+  display: none
+  @include tablet-mini
+    display: block      
+#nav 
+  @extend %gradient-azul
+  @extend %p-fixed
+  z-index: 3
+  top: 0
+  left: 0
+  height: 100%
+  max-width: 260px
+  .menu
+    width: 95%
+    border: 2px solid #fff
+    pointer-events: none
+    @extend %color-branco
+    cursor: default
+    text-align: center
+    font:
+      weight: 600
+      size: 20px
+    line-height: 45px
+  .first
+      padding-top: 5rem  
+  span
+    display: none
+  @include full-hd
+    max-width: 400px
+    padding: 150px 30px 70px 50px
+  @include tablet-mini 
+    max-width: 300px
+    overflow-y: auto 
+    span
+      display: block
+  width: 100%
+  padding: 120px 30px 70px 20px
+  @include transform(translateX(-100%))
+  @include transition(transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86))
+  ul
+    list-style-type: none
+    li
+      @include transform(translateX(40px))
+      opacity: 0
+      @include transition(all .3s ease)
+      float: none
+      list-style: circle
+      @extend %color-branco
+      a 
+        @extend %color-branco
+        @extend %p-relative
+        text:
+          decoration: none
+          transform: uppercase
+        font-size: 1rem
+        @include full-hd
+          font-size: 1.5rem
+        @include tablet-mini 
+          font-size: 1.3rem  
+        display: block
+        padding: 10px 0
+        @include transition(all .3s ease)
+        &:hover
+          color: #b7ac7f
+#nav.show
+  @include transform(translateX(0px))
+  ul
+    li 
+      @include transform(translateX(0px))
+      opacity: 1
+      &:nth-child(1)
+        transition-delay: 0.15s
+      &:nth-child(2)
+        transition-delay: 0.3s
+      &:nth-child(3)
+        transition-delay: 0.45s
+      &:nth-child(4)
+        transition-delay: 0.6s
+      &:nth-child(5)
+        transition-delay: 0.75s
+      &:nth-child(6)
+        transition-delay: 0.9s
+      &:nth-child(7) 
+        transition-delay: 1.05s
+      &:nth-child(8) 
+        transition-delay: 1.2s
+
+
+#logo
+  display: grid
+  margin: 20px 5rem
+  width: 0
+  @include transition(all .3s .3s)
+  img
+    @include celular-xs
+      height: 2rem
+#undnav
+  @extend %p-fixed
+  width: 100%
+  @extend %flex-box
+  z-index: 2
+  justify-content: space-between
+  @include transition(.5s)
+  ul
+    @extend %flex-box
+    justify-content: center
+    align-self: flex-end
+    list-style: none
+    @include tablet-mini
+      display: none 
+    li 
+      margin: 0 15px 
+      a
+        color: #fff
+        letter-spacing: 1.2px
+        text-shadow: 1px 1px #3a3a3a
+        font:
+          size: 19px
+          family: 'Bree Serif', serif 
+        @include full-hd
+          font-size: 20px
+        &:after
+          content: ''
+          display: block
+          width: 0
+          height: 3px
+          background: #cc6b0a
+          @include transition(.4s)
+        &:hover
+          text-decoration: none
+          &:after
+            width: 100%
+#undnav.down
+  background: rgba(35,35,35,0.95)
+  @include transition(all .5s)
+  @include animacao( nav-down 0.7s) 
+@include keyframe( nav-down )
+  0%
+    @include transform(translateY(-100%))
+  100%
+    @include transform(translateY(0))      
+/*botoes*/
+.icons
+  display: flex
+  flex-flow: row
+  align-self: center
+  padding: 0 2rem
+  @include tablet
+    padding: 1rem 1rem
+  z-index: 2
+  .botao
+    margin: 0 20px
+    @include tablet
+      margin: 0
+    .login-icon
+      height: 45px
+      @extend %pointer
+      width: 45px
+      border-radius: 50%
+      @extend %back-transparent
+      @extend %color-branco
+      @include transition(1s)
+      @include tablet
+        display: none
+      &:focus
+        outline: none
+      &:before
+        content: '\f007'
+        font:
+          family: "Font Awesome 5 Free" 
+          weight: 900
+          size: 20px
+
+    
+/*icone barra de pesquisa*/
+.pesq-icon
+  height: 45px
+  @extend %pointer
+  width: 45px
+  border-radius: 50%
+  @extend %back-transparent
+  @extend %color-branco
+  @include transition(1s)
+  &:focus
+    outline: none
+  &:before
+    content: '\f002'
+    font:
+      family: "Font Awesome 5 Free" 
+      weight: 900
+      size: 20px  
+
+.pesq-icon.close     
+  &:before
+    @include transition(1s)
+    content: '\f00d'
+    @extend %color-branco
+    font:
+       family: "Font Awesome 5 Free" 
+       weight: 900
+       size: 24px  
+
+.search-box
+  @extend %p-absolute
+  right: 11rem
+  top: 25px
+  width: 0
+  @include tablet
+    right: 40px
+  border-bottom: 1.5px solid #fff
+  @include transition (all 1s) 
+  .search-input
+    border: 0
+    padding: 10px
+    @extend %color-branco
+    @extend %width-height
+    @extend %back-transparent
+    &:focus
+      outline: none
+  @include placeholder 
+    color: #fff
+    font-weight:100
+      
+.search-box.exibir
+  width: 65%
+  @include tablet
+    width: 70%
+  opacity: 1
+
+#undnav.sumir   
+  ul
+    li
+      opacity: 0
+      @include transition(all .4s) 
+      &:nth-child(even)
+        @include transform(translateY(-100%))
+      &:nth-child(odd)
+        @include transform(translateY(100%))
+#undnav.sumir  #logo
+  @include tablet-mini
+    opacity: 0 
+    @include transition(all .3s .3s)
+    @include transform(translateY(100%))
+
+/*textos*/
+.img-text
+  @extend %p-absolute
+  left:30vh
+  top:35vh
+  border-left: 2px solid #cc6b0a
+  @include full-hd
+    max-width: 50%
+    left:55vh
+  @include tablet
+    left: 1%
+    right: 0
+    top:35vh
+  @include celular-xs
+    left: 5vh
+  h1
+    @extend %color-branco
+    letter-spacing: 1.5px
+    text-shadow: 1px 1px #3a3a3a
+    font:
+      family: 'Noto Sans', sans-serif
+      size: 3.5rem  
+      weight: bold
+    @include tablet-mini
+      font-size: 2.5rem
+    @include celular
+      font-size: 1.7rem 
+    @include celular-xs 
+      font-size: 1.5rem   
+  a
+    margin-top: 4rem
+    box-shadow: 1px 2px rgba(0,0,0,0.5)
+    @extend %gradient-azul-dark 
+    @extend %color-branco
+    i
+      padding-left: 10px
+    &:hover
+      @extend %gradient-azul
+    &:focus
+      box-shadow: none  
+       

@@ -1,0 +1,107 @@
+/*section 1*/
+.sobre
+  @include back(url(../img/paralax.jpg) 50% 50%)
+  background-attachment: fixed
+  color: #fff
+  padding: 50px 0
+  position: relative
+  overflow-x: auto
+  &:before
+    content: ' '
+    position: absolute
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.6)
+    top: 0
+    left: 0
+  h2
+    font-size: 55px
+    font-weight: 800
+    margin-top: 50%
+    @include tablet
+      font-size: 40px
+    small
+      display: block
+      font-size: 24px
+      margin-bottom: 15px
+      padding-left: 10px
+.about
+  margin-top: 5rem
+  @include tablet
+  p
+    font-size: 16px
+    text-align: justify
+    width: 100% 
+    margin: 20px 10px
+
+/*SECTION 2*/
+.video-section
+  display: flex
+  justify-content: center 
+  padding-top: 5rem 
+  iframe
+    width: 100%
+    height: 100%  
+  p
+    padding: 15px   
+
+
+/*SECTION 3*/
+.how-section1
+  margin-top: -5%
+  position: relative
+  padding: 10%
+  h4
+    color: #ffa500
+    font-weight: bold
+    font-size: 30px
+  .subheading
+    color: #3931af
+    font-size: 20px
+  .row
+    margin-top: 10%
+
+.how-img
+  text-align: center
+  img
+    width: 50%
+    @include tablet
+      width: 60% 
+    @include celular
+
+.text
+  @include full-hd
+    padding-top: 3.5rem 
+
+
+
+/*personalizados*/    
+.pc
+  @include celular
+    padding-top: 18rem
+    @include celular-md
+      padding-top: 13rem
+    img
+      position: absolute
+      bottom: 22rem
+      @include celular-md
+        bottom: 31rem
+      left: 0
+      right: 0
+      display: block
+      margin : 0 auto
+.globo
+  @include celular
+    padding-top: 18rem
+    @include celular-md
+      padding-top: 13rem
+    img
+      position: absolute
+      bottom: 17rem
+      @include celular-md
+        bottom: 23rem
+      left: 0
+      right: 0
+      display: block
+      margin : 0 auto    
+        
